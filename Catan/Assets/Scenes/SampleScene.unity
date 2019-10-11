@@ -936,7 +936,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffa5e95208172e4c838f0e1b4c1206a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4940802842867654, guid: 71be69e7a312bc844ad384574d3624fe, type: 3}
+  brick_map: {fileID: 4191738363515258, guid: 60e77467a81160140b6dd83e291db008, type: 3}
+  desert_map: {fileID: 4957867066966700, guid: b7700b61320aa4d488a12039baacd2e2, type: 3}
+  wood_map: {fileID: 4940802842867654, guid: 71be69e7a312bc844ad384574d3624fe, type: 3}
+  stone_map: {fileID: 4844803064846370, guid: d2c7ed6d9dcb93748ac807810622ecc9, type: 3}
+  sheep_map: {fileID: 4858874103187850, guid: 724d1dba07b41c34282d4078db00274d, type: 3}
+  straw_map: {fileID: 4574245034221364, guid: e4113aa56a03cf64eba4ae136ef1ac74, type: 3}
 --- !u!1 &2123008913
 GameObject:
   m_ObjectHideFlags: 0
