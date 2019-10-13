@@ -12,6 +12,20 @@ public class InstantiateMap : MonoBehaviour
     public Transform stone_map;
     public Transform sheep_map;
     public Transform straw_map;
+    public Transform water_map;
+    public Transform port_all_map;
+    public Transform port_brick_map;
+    public Transform port_stone_map;
+    public Transform port_wood_map;
+    public Transform port_sheep_map;
+    public Transform port_straw_map;
+    int water = 9;
+    int port_brick = 1;
+    int port_wood = 1;
+    int port_stone = 1;
+    int port_sheep = 1;
+    int port_straw = 1;
+    int port_all = 4;
     int desert = 1;
     int brick = 3;
     int wood = 4;
@@ -24,7 +38,7 @@ public class InstantiateMap : MonoBehaviour
     int pair = 0;
     System.Random aleatoire = new System.Random();
   
-    void generator_map(float i, float x, float z, int pair, int generator)
+    void generator_map(float i, float x, float z, int generator)
     {
         switch (i)
         {
@@ -56,92 +70,148 @@ public class InstantiateMap : MonoBehaviour
         {
             desert--;
             Instantiate(desert_map, new Vector3(x, 0, z), Quaternion.identity);
-            if (pair == 1)
-            {
-                generator_map(i + 1, x, z, pair - 1, aleatoire.Next(6));
-            }
-            else
-            {
-                generator_map(i + 1, x, z, pair + 1, aleatoire.Next(6));
-            }
+            generator_map(i + 1, x, z, aleatoire.Next(6));
+               
         }
 
         else if (generator == 1 & brick > 0)
         {
             brick--;
             Instantiate(brick_map, new Vector3(x, 0, z), Quaternion.identity);
-            if (pair == 1)
-            {
-                generator_map(i + 1, x, z, pair - 1, aleatoire.Next(6));
-            }
-            else
-            {
-                generator_map(i + 1, x, z, pair + 1, aleatoire.Next(6));
-            }
+            generator_map(i + 1, x, z, aleatoire.Next(6));
+            
         }
+
         else if (generator == 2 & wood > 0)
         {
             wood--;
             Instantiate(wood_map, new Vector3(x, 0, z), Quaternion.identity);
-            if (pair == 1)
-            {
-                generator_map(i + 1, x, z, pair - 1, aleatoire.Next(6));
-            }
-            else
-            {
-                generator_map(i + 1, x, z, pair + 1, aleatoire.Next(6));
-            }
+            generator_map(i + 1, x, z, aleatoire.Next(6));
         }
 
         else if (generator == 3 & stone > 0)
         {
             stone--;
             Instantiate(stone_map, new Vector3(x, 0, z), Quaternion.identity);
-            if (pair == 1)
-            {
-                generator_map(i + 1, x, z, pair - 1, aleatoire.Next(6));
-            }
-            else
-            {
-                generator_map(i + 1, x, z, pair + 1, aleatoire.Next(6));
-            }
+            generator_map(i + 1, x, z, aleatoire.Next(6));
         }
 
         else if (generator == 4 & sheep > 0)
         {
             sheep--;
             Instantiate(sheep_map, new Vector3(x, 0, z), Quaternion.identity);
-            if (pair == 1)
-            {
-                generator_map(i + 1, x, z, pair - 1, aleatoire.Next(6));
-            }
-            else
-            {
-                generator_map(i + 1, x, z, pair + 1, aleatoire.Next(6));
-            }
+            generator_map(i + 1, x, z, aleatoire.Next(6));
         }
 
         else if (generator == 5 & straw > 0)
         {
             straw--;
             Instantiate(straw_map, new Vector3(x, 0, z), Quaternion.identity);
+            generator_map(i + 1, x, z, aleatoire.Next(6));
+            
+        }
+        else
+        {
+            generator_map(i, x, z, aleatoire.Next(6));
+        }
+    }
+    void generator_sea(float i, float x, float z, int y, int pair, int generator)
+    {
+        switch (i)
+        {
+            case 1: x = -1.5f; z = 0; break;
+            case 2: x = -1; z = -1; y = -120; break;
+            case 3: x = -0.5f; z = -2; break;
+            case 4: x = 0; z = -3; y = -120; break;
+            case 5: x = 1; z = -3; break;
+            case 6: x = 2; z = -3; y = -120; break;
+            case 7: x = 3; z = -3; break;
+            case 8: x = 3.5f; z = -2; y = 120; break;
+            case 9: x = 4; z = -1; break;
+            case 10: x = 4.5f; z = 0; y = 120; break;
+            case 11: x = 4; z = 1; break;
+            case 12: x = 3.5f; z = 2; y = 120; break;
+            case 13: x = 3; z = 3; break;
+            case 14: x = 2; z = 3; y = 60; break;
+            case 15: x = 1; z = 3; break;
+            case 16: x = 0; z = 3; y = 0; break;
+            case 17: x = -0.5f; z = 2; break;
+            case 18: x = -1f; z = 1; y = -60; break;
+        }
+        if (i == 19) { }
+        else if (i < 19)
+        {
             if (pair == 1)
             {
-                generator_map(i + 1, x, z, pair - 1, aleatoire.Next(6));
+                water--;
+                Instantiate(water_map, new Vector3(x, 0, z), Quaternion.identity);
+                generator_sea(i + 1, x, z, y, pair - 1, aleatoire.Next(6));
             }
-            else
-            {
-                generator_map(i + 1, x, z, pair + 1, aleatoire.Next(6));
+
+            else if (pair == 0)
+            {   
+                if (generator == 0 & port_all > 0 )
+                {
+                    port_all--;
+                    Instantiate(port_all_map, new Vector3(x, 0, z), Quaternion.Euler(0, y, 0));
+                    generator_sea(i + 1, x, z, y, pair + 1, aleatoire.Next(6));
+                }
+               
+                else if (generator == 1 & port_brick > 0)
+                {
+                    port_brick--;
+                    Instantiate(port_brick_map, new Vector3(x, 0, z), Quaternion.Euler(0, y, 0));
+                    generator_sea(i + 1, x, z, y, pair + 1, aleatoire.Next(6));
+                }
+
+                else if (generator == 2 & port_stone > 0)
+                {
+                    port_stone--;
+                    Instantiate(port_stone_map, new Vector3(x, 0, z), Quaternion.Euler(0, y, 0));
+                    generator_sea(i + 1, x, z, y, pair + 1, aleatoire.Next(6));
+                }
+
+                else if (generator == 3 & port_sheep > 0)
+                {
+                    port_sheep--;
+                    Instantiate(port_sheep_map, new Vector3(x, 0, z), Quaternion.Euler(0, y, 0));
+                    generator_sea(i + 1, x, z, y, pair + 1, aleatoire.Next(6));
+                }
+
+                else if (generator == 4 & port_straw > 0)
+                {
+                    port_straw--;
+                    Instantiate(port_straw_map, new Vector3(x, 0, z), Quaternion.Euler(0, y, 0));
+                    generator_sea(i + 1, x, z, y, pair + 1, aleatoire.Next(6));
+                }
+
+                else if (generator == 5 & port_wood > 0)
+                {
+                    port_wood--;
+                    Instantiate(port_wood_map, new Vector3(x, 0, z), Quaternion.Euler(0, y, 0));
+                    generator_sea(i + 1, x, z, y, pair + 1, aleatoire.Next(6));
+                }
+
+                else
+                {
+                   generator_sea(i, x, z, y, pair, aleatoire.Next(6));
+                }
             }
         }
         else
         {
-            generator_map(i, x, z, pair, aleatoire.Next(6));
+            generator_sea(i, x, z, y, pair, generator);
         }
+    }
+
+    void generator_number()
+    {
+
     }
     void Start()
     {
-        generator_map(1, 0, -2, 0, aleatoire.Next(6));
+        generator_map(1, 0, -2, aleatoire.Next(6));
+        generator_sea(1, -1.5f, -3, -120, 1,aleatoire.Next(6));
     }
 
 
