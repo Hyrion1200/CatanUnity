@@ -196,13 +196,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860087283}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.4414511, y: 0, z: 0, w: 0.89728534}
+  m_LocalPosition: {x: 1.54, y: 5.3, z: -4.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 52.393, y: 0, z: 0}
 --- !u!1 &1622933831
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   sheep_map: {fileID: 4445847322474198, guid: cb61a3b5c7a1c434fa1a9a5bec7b2a41, type: 3}
   straw_map: {fileID: 4574245034221364, guid: e4113aa56a03cf64eba4ae136ef1ac74, type: 3}
   water_map: {fileID: 4275369018358284, guid: ba18ad1c2b7e68644b186f04055c20f2, type: 3}
-  port_all_map: {fileID: 4795460056021668, guid: 71199765df3f9d147bc10d0b8c6f4af7,
+  port_all_map: {fileID: 4795460056021668, guid: 3fe551a8b914d154697d4d95bc415591,
     type: 3}
   port_brick_map: {fileID: 4795460056021668, guid: e7e219bcbe1ea1646b8142bbd1275d94,
     type: 3}
@@ -250,6 +250,28 @@ MonoBehaviour:
   port_sheep_map: {fileID: 4795460056021668, guid: 2d55d95692c53d3499f6a4819e6aa5f5,
     type: 3}
   port_straw_map: {fileID: 4795460056021668, guid: 0f3cedb5cb106dd4693352632f4120b4,
+    type: 3}
+  token_2_map: {fileID: 4316448374051412, guid: 069bb238ce53ebe469139ce408c0fe8e,
+    type: 3}
+  token_3_map: {fileID: 4316448374051412, guid: 9fc0843c21ce6bb47bd5c8ea3ef16059,
+    type: 3}
+  token_4_map: {fileID: 4316448374051412, guid: 46b56d988c5d76448ac568a502850588,
+    type: 3}
+  token_5_map: {fileID: 4316448374051412, guid: 85e135f0c9e76c4478a55f1e60023e54,
+    type: 3}
+  token_6_map: {fileID: 4316448374051412, guid: 8e159a7072c57f64e8922e25de7f7ae0,
+    type: 3}
+  token_7_map: {fileID: 4316448374051412, guid: c891dc657f881a7479349cf6ab63525b,
+    type: 3}
+  token_8_map: {fileID: 4316448374051412, guid: 208fdbc1d79fb644c8bc4c60b17f050b,
+    type: 3}
+  token_9_map: {fileID: 4316448374051412, guid: 93a87b5e79bd3d546af779483a169f52,
+    type: 3}
+  token_10_map: {fileID: 4316448374051412, guid: 42ccc14357efe064d8dcd78dfa7fb0e7,
+    type: 3}
+  token_11_map: {fileID: 4316448374051412, guid: 1fcee552cef5e3d4994fdc9cb0b1dff8,
+    type: 3}
+  token_12_map: {fileID: 4316448374051412, guid: 4eab751cb2f2dd74882121260286cd80,
     type: 3}
 --- !u!4 &1622933833
 Transform:
