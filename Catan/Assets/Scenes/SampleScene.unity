@@ -942,6 +942,41 @@ MonoBehaviour:
   stone_map: {fileID: 4844803064846370, guid: d2c7ed6d9dcb93748ac807810622ecc9, type: 3}
   sheep_map: {fileID: 4858874103187850, guid: 724d1dba07b41c34282d4078db00274d, type: 3}
   straw_map: {fileID: 4574245034221364, guid: e4113aa56a03cf64eba4ae136ef1ac74, type: 3}
+  water_map: {fileID: 4275369018358284, guid: ba18ad1c2b7e68644b186f04055c20f2, type: 3}
+  port_all_map: {fileID: 4795460056021668, guid: 3fe551a8b914d154697d4d95bc415591,
+    type: 3}
+  port_brick_map: {fileID: 4795460056021668, guid: e789006daa6275947bec00dafdd41dda,
+    type: 3}
+  port_stone_map: {fileID: 4795460056021668, guid: a2b3cf44b1e71d84b97d29cdeaff92b0,
+    type: 3}
+  port_wood_map: {fileID: 4795460056021668, guid: a1946b9f5bd2e9e4cb1f788b0725d423,
+    type: 3}
+  port_sheep_map: {fileID: 4795460056021668, guid: 50e791c897adaa943a742e2f56b23edc,
+    type: 3}
+  port_straw_map: {fileID: 4795460056021668, guid: 26ac922500b2a4d4c885b4797235287e,
+    type: 3}
+  token_2_map: {fileID: 4316448374051412, guid: 069bb238ce53ebe469139ce408c0fe8e,
+    type: 3}
+  token_3_map: {fileID: 4316448374051412, guid: 9fc0843c21ce6bb47bd5c8ea3ef16059,
+    type: 3}
+  token_4_map: {fileID: 4316448374051412, guid: 46b56d988c5d76448ac568a502850588,
+    type: 3}
+  token_5_map: {fileID: 4316448374051412, guid: 85e135f0c9e76c4478a55f1e60023e54,
+    type: 3}
+  token_6_map: {fileID: 4316448374051412, guid: 8e159a7072c57f64e8922e25de7f7ae0,
+    type: 3}
+  token_7_map: {fileID: 4316448374051412, guid: c891dc657f881a7479349cf6ab63525b,
+    type: 3}
+  token_8_map: {fileID: 4316448374051412, guid: 208fdbc1d79fb644c8bc4c60b17f050b,
+    type: 3}
+  token_9_map: {fileID: 4316448374051412, guid: 93a87b5e79bd3d546af779483a169f52,
+    type: 3}
+  token_10_map: {fileID: 4316448374051412, guid: 42ccc14357efe064d8dcd78dfa7fb0e7,
+    type: 3}
+  token_11_map: {fileID: 4316448374051412, guid: 1fcee552cef5e3d4994fdc9cb0b1dff8,
+    type: 3}
+  token_12_map: {fileID: 4316448374051412, guid: 4eab751cb2f2dd74882121260286cd80,
+    type: 3}
 --- !u!1 &2123008913
 GameObject:
   m_ObjectHideFlags: 0

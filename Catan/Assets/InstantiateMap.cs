@@ -59,10 +59,82 @@ public class InstantiateMap : MonoBehaviour
     int z = -2;
     int i = 0;
     int pair = 0;
-    System.Random aleatoire = new System.Random();
+    int token = 0;
+    int prev2 = 2;
+    int prev3 = 2;
+    int prev4 = 2;
+    int prev5 = 2;
+    int prev7 = 2;
+    int prev9 = 2;
+    int prev10 = 2;
+    int prev11 = 2;
+    int prev12 = 2;
 
+    Transform tk ;
+    System.Random aleatoire = new System.Random();
+    System.Random random = new System.Random();
     public void generator_token(float i, float x, float z, int generator)
     {
+       token = random.Next(1, 2);
+
+        if (token == 0)
+        {
+            token = random.Next(1, 5);
+            if (token == 2 & prev2 > 0) { prev2--; }
+            else if (token == 3 & prev3 > 0) { prev3--; }
+            else if (token == 4 & prev4 > 0) { prev4--; }
+            else if (token == 5 & prev5 > 0) { prev5--; }
+            else { token = random.Next(1, 5); }
+            if (prev2 <= 0 & prev3 <= 0 & prev4 <= 0 & prev5 <= 0)
+            {
+                token = random.Next(9, 12);
+                if (token == 9 & prev9 > 0) { prev9--; }
+                else { token = random.Next(1, 5); }
+                if (token == 10 & prev10 > 0) { prev10--; }
+                else { token = random.Next(1, 5); }
+                if (token == 11 & prev11 > 0) { prev11--; }
+                else { token = random.Next(1, 5); }
+                if (token == 12 & prev12 > 0) { prev12--; }
+                else { token = random.Next(1, 5); }
+            }
+        }
+        else
+        {
+            token = random.Next(9, 12);
+            if (token == 9 & prev9 > 0) { prev9--; }
+            else { token = random.Next(1, 5); }
+            if (token == 10 & prev10 > 0) { prev10--; }
+            else { token = random.Next(1, 5); }
+            if (token == 11 & prev11 > 0) { prev11--; }
+            else { token = random.Next(1, 5); }
+            if (token == 12 & prev12 > 0) { prev12--; }
+            else { token = random.Next(1, 5); }
+            if (prev9 <= 0 & prev10 <= 0 & prev11 <= 0 & prev12 <= 0)
+            {
+                token = random.Next(1, 5);
+                if (token == 2 & prev2 > 0) { prev2--; }
+                else { token = random.Next(1, 5); }
+                if (token == 3 & prev3 > 0) { prev3--; }
+                else { token = random.Next(1, 5); }
+                if (token == 4 & prev4 > 0) { prev4--; }
+                else { token = random.Next(1, 5); }
+                if (token == 5 & prev5 > 0) { prev5--; }
+                else { token = random.Next(1, 5); }
+            }
+        }
+        Debug.Log(token);
+        switch (token)
+        {
+            case 2: tk = token_2_map; break;
+            case 3: tk = token_3_map; break;
+            case 4: tk = token_4_map; break;
+            case 5: tk = token_5_map; break;
+            case 7: tk = token_7_map; break;
+            case 9: tk = token_9_map; break;
+            case 10: tk = token_10_map; break;
+            case 11: tk = token_11_map; break;
+            case 12: tk = token_12_map; break;
+        }
         if (generator == 0 & desert > 0 & token_7>0 & i != 2 & i !=4 & i != 15 & i !=18)
         {
             desert--;
@@ -73,6 +145,13 @@ public class InstantiateMap : MonoBehaviour
             generator_map(i + 1, x, z, aleatoire.Next(6));
         }
 
+        else if (generator == 1 & brick > 0 & i != 2 & i != 4 & i != 15 & i != 18)
+        {
+            brick--;
+            Instantiate(brick_map, new Vector3(x, 0, z), Quaternion.identity);
+            Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+            generator_map(i + 1, x, z, aleatoire.Next(6));
+        }
         else if (generator == 1 & brick > 0)
         {
             brick--;
@@ -80,13 +159,27 @@ public class InstantiateMap : MonoBehaviour
             generator_map(i + 1, x, z, aleatoire.Next(6));
         }
 
-        else if (generator == 2 & wood > 0)
+        else if (generator == 2 & wood > 0 & i != 2 & i != 4 & i != 15 & i != 18)
+        {
+            wood--;
+            Instantiate(wood_map, new Vector3(x, 0, z), Quaternion.identity);
+            Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+            generator_map(i + 1, x, z, aleatoire.Next(6));
+        }
+        else if (generator == 2 & wood > 0 )
         {
             wood--;
             Instantiate(wood_map, new Vector3(x, 0, z), Quaternion.identity);
             generator_map(i + 1, x, z, aleatoire.Next(6));
         }
 
+        else if (generator == 3 & stone > 0 & i != 2 & i != 4 & i != 15 & i != 18)
+        {
+            stone--;
+            Instantiate(stone_map, new Vector3(x, 0, z), Quaternion.identity);
+            Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+            generator_map(i + 1, x, z, aleatoire.Next(6));
+        }
         else if (generator == 3 & stone > 0)
         {
             stone--;
@@ -94,6 +187,13 @@ public class InstantiateMap : MonoBehaviour
             generator_map(i + 1, x, z, aleatoire.Next(6));
         }
 
+        else if (generator == 4 & sheep > 0 & i != 2 & i != 4 & i != 15 & i != 18)
+        {
+            sheep--;
+            Instantiate(sheep_map, new Vector3(x, 0, z), Quaternion.identity);
+            Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+            generator_map(i + 1, x, z, aleatoire.Next(6));
+        }
         else if (generator == 4 & sheep > 0)
         {
             sheep--;
@@ -101,6 +201,13 @@ public class InstantiateMap : MonoBehaviour
             generator_map(i + 1, x, z, aleatoire.Next(6));
         }
 
+        else if (generator == 5 & straw > 0 & i != 2 & i != 4 & i != 15 & i != 18)
+        {
+            straw--;
+            Instantiate(straw_map, new Vector3(x, 0, z), Quaternion.identity);
+            Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+            generator_map(i + 1, x, z, aleatoire.Next(6));
+        }
         else if (generator == 5 & straw > 0)
         {
             straw--;
@@ -171,6 +278,7 @@ public class InstantiateMap : MonoBehaviour
     }
     public void generator_map(float i, float x, float z, int generator)
     {
+        Debug.Log(i);
         switch (i)
         {
             case 1: x = -0.5f; z = 0; break;
@@ -212,7 +320,7 @@ public class InstantiateMap : MonoBehaviour
 
         else
         {
-            if (i == 20) { }
+            if (i > 19) { Debug.Log("Fin Map"); }
             else
             {
                 generator_token(i, x, z, aleatoire.Next(6));
