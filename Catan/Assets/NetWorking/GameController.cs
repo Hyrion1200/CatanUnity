@@ -14,8 +14,8 @@ public class GameController : MonoBehaviour
    void Start()
     {
         Debug.Log("Creating Player");
-        GameObject player = PhotonNetwork.Instantiate("Player", new Vector3(1.54f, 5.3f, -4.62f), new Quaternion (0, 0, 0, 0) );
-        player.transform.rotation = Quaternion.Euler(52.3f, 0, 0);
+        GameObject player = PhotonNetwork.Instantiate("Player", new Vector3(1.54f, 5.3f, 0.62f), new Quaternion (0, 0, 0, 0) );
+        player.transform.rotation = Quaternion.Euler(90, 0, 0);
         player.GetComponentInChildren<Camera>().enabled = true;
         player.GetComponentInChildren<Camera>().GetComponent<AudioListener>().enabled = true;
     }
