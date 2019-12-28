@@ -31,17 +31,6 @@ public class InstantiateMap : MonoBehaviour
     public Transform token_10_map;
     public Transform token_11_map;
     public Transform token_12_map;
-    int token_2 = 1;
-    int token_3 = 2;
-    int token_4 = 2;
-    int token_5 = 2;
-    int token_6 = 2;
-    int token_7 = 1;
-    int token_8 = 2;
-    int token_9 = 2;
-    int token_10 = 2;
-    int token_11 = 2;
-    int token_12 = 1;
     int water = 9;
     int port_brick = 1;
     int port_wood = 1;
@@ -59,47 +48,48 @@ public class InstantiateMap : MonoBehaviour
     int z = -2;
     int i = 0;
     int pair = 0;
-    int token = 0;
-    int prev2 = 1;
-    int prev3 = 2;
-    int prev4 = 2;
-    int prev5 = 2;
-    int prev7 = 2;
-    int prev9 = 2;
-    int prev10 = 2;
-    int prev11 = 2;
-    int prev12 = 1;
+    int desert_case = 1;
+    int brick_case = 2;
+    int wood_case = 3;
+    int stone_case = 4;
+    int sheep_case = 5;
+    int straw_case = 6;
+    int token_total = 15;
+    int token_2 = 1;
+    int token_3 = 2;
+    int token_4 = 2;
+    int token_5 = 2;
+    int token_9 = 2;
+    int token_10 = 2;
+    int token_11 = 2;
+    int token_12 = 1;
+    int token_2_case = 2;
+    int token_3_case = 3;
+    int token_4_case = 4;
+    int token_5_case = 5;
+    int token_6_case = 6;
+    int token_7_case = 7;
+    int token_8_case = 8;
+    int token_9_case= 9;
+    int token_10_case = 10;
+    int token_11_case = 11;
+    int token_12_case = 12;
 
+    int[,] bigOne = new int[20,20];
+
+    int[,] babyOne = new int[20,20];
+    
 
     Transform tk;
     System.Random aleatoire = new System.Random();
     System.Random random = new System.Random();
 
 
-    public void rand(out int token, ref int prev2, ref int prev3, ref int prev4, ref int prev5, ref int prev9, ref int prev10, ref int prev11, ref int prev12)
+    public void generator_token(int i, float x, float z, ref int token_2, ref int token_3, ref int token_4, ref int token_5, ref int token_9, ref int token_10, ref int token_11, ref int token_12)
     {
-        token = random.Next(2, 13);
-        if (token == 2 & prev2 > 0) { prev2--;   }
-        else if (token == 3 & prev3 > 0) { prev3--;  }
-        else if (token == 4 & prev4 > 0) { prev4--;  }
-        else if (token == 5 & prev5 > 0) { prev5--;  }
-        else if (token == 9 & prev9 > 0) { prev9--;  }
-        else if (token == 10 & prev10 > 0) { prev10--;  }
-        else if (token == 11 & prev11 > 0) { prev11--;  }
-        else if (token == 12 & prev12 > 0) { prev12--;  }
-        else if (token == 6 || token == 7 || token == 8 || prev2 > 0 || prev3 > 0|| prev4 > 0 || prev5 > 0 || prev9 > 0 || prev10 > 0 || prev11 > 0 || prev12 > 0)
-        {
-             rand(out token, ref prev2, ref prev3, ref prev4, ref prev5, ref prev9, ref prev10, ref prev11, ref prev12);
-             
-        }
-        else { Debug.Log("BUUUUUUUUUUUG"); token = 0; }
-    }
-    public void generator_token(float i, float x, float z)
-    {
-        rand(out token, ref prev2, ref prev3, ref prev4, ref prev5, ref prev9, ref prev10, ref prev11, ref prev12); 
+        int token = token = random.Next(2, 13);
         switch (token)
         {
-            case 0: tk = token_2_map; break;
             case 2: tk = token_2_map; break;
             case 3: tk = token_3_map; break;
             case 4: tk = token_4_map; break;
@@ -109,35 +99,117 @@ public class InstantiateMap : MonoBehaviour
             case 11: tk = token_11_map; break;
             case 12: tk = token_12_map; break;
         };
-
         switch (i)
         {
             case 1: x = -0.5f; z = 0; break;
-            case 2: x = 0; z = 1; break;
-            case 3: x = 3.5f; z = 0; break;
-            case 4: x = 2.5f; z = -2; break;
-            case 5: x = 1; z = 1; break;
-            case 6: x = 2; z = 1; break;
-            case 7: x = 3; z = 1; break;
-            case 8: x = 0; z = -1; break;
-            case 9: x = 1; z = -1; break;
-            case 10: x = 2; z = -1; break;
-            case 11: x = 3; z = -1; break;
-            case 12: x = 0.5f; z = 2; break;
-            case 13: x = 2.5f; z = 2; break;
-            case 14: x = 0.5f; z = -2; break;
-            case 15: x = 2.5f; z = -2; break;
-
+            case 2: x = 0.5f; z = 0; break;
+            case 3: x = 1.5f; z = 0; break;
+            case 4: x = 2.5f; z = 0; break;
+            case 5: x = 3.5f; z = 0; break;
+            case 6: x = 0; z = 1; break;
+            case 7: x = 1; z = 1; break;
+            case 8: x = 2; z = 1; break;
+            case 9: x = 3; z = 1; break;
+            case 10: x = 0; z = -1; break;
+            case 11: x = 1; z = -1; break;
+            case 12: x = 2; z = -1; break;
+            case 13: x = 3; z = -1; break;
+            case 14: x = 0.5f; z = 2; break;
+            case 15: x = 1.5f; z = 2; break;
+            case 16: x = 2.5f; z = 2; break;
+            case 17: x = 0.5f; z = -2; break;
+            case 18: x = 1.5f; z = -2; break;
+            case 19: x = 2.5f; z = -2; break;
         };
-        if (i > 14) { }
+        if (i > 19) { }
+        else if (i == 1 || i == 5 || i == 6 || i ==7 || i==8 || i == 9 || i ==10 || i == 11 || i == 12 || i == 13 || i == 14 || i == 16 || i == 17 || i ==19)
+        {
+           
+
+            if (token == 2 && token_2 > 0)
+            {
+                token_2--;
+                babyOne[0, i] = token_2_case;
+                Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12); 
+            }
+            else if (token == 3 && token_3 > 0)
+            {
+                token_3--;
+                babyOne[0, i] = token_3_case;
+                Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);   
+            }
+            else if (token == 4 && token_4 > 0)
+            {
+                token_4--;
+                babyOne[0, i] = token_4_case;
+                Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);   
+            }
+            else if (token == 5 && token_5 > 0)
+            {
+                token_5--;
+                babyOne[0, i] = token_5_case;
+                Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
+            }
+            else if (token == 9 && token_9 > 0)
+            {
+                token_9--;
+                babyOne[0, i] = token_9_case;
+                Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
+            }
+            else if (token == 10 && token_10 > 0)
+            {
+                token_10--;
+                babyOne[0, i] = token_10_case;
+                Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12); 
+            }
+            else if (token == 11 && token_11 > 0)
+            {
+                token_11--;
+                babyOne[0, i] = token_11_case;
+                Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
+            }
+            else if (token == 12 && token_12 > 0)
+            {
+                token_12--;
+                babyOne[0, i] = token_12_case;
+                Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
+            }
+            else {generator_token(i, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);}
+        }
+        else if (i == 2 || i == 4)
+        {
+            Instantiate(token_8_map, new Vector3(x, 0, z), Quaternion.identity);
+            generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
+            babyOne[0, i] = token_8_case;
+        }
+        else if (i == 15 || i == 18)
+        {
+            Instantiate(token_6_map, new Vector3(x, 0, z), Quaternion.identity);
+            generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
+            babyOne[0, i] = token_6_case;
+        }
+        else if (i == 3)
+        {
+            Instantiate(token_7_map, new Vector3(x, 0, z), Quaternion.identity);
+            generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
+            babyOne[0, i] = token_7_case;
+        }
+     
         else
         {
-            Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
-            generator_token(i + 1, 0, 0);
+            Debug.Log("Fin Token");      
         }
     }
 
-    public void generator_map(float i, float x, float z, int generator)
+    public void generator_map(int i, float x, float z, int generator)
     {
         switch (i)
         {
@@ -162,128 +234,19 @@ public class InstantiateMap : MonoBehaviour
             case 19: x = 2.5f; z = -2; break;
 
         }
-
-        if (i == 2 || i == 4)
-
-        {
-            if (generator == 1 & brick > 0)
-            {
-                brick--;
-                Instantiate(brick_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_8_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(6));
-            }
-
-            else if (generator == 2 & wood > 0)
-            {
-                wood--;
-                Instantiate(wood_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_8_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(6));
-            }
-
-            else if (generator == 3 & stone > 0)
-            {
-                stone--;
-                Instantiate(stone_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_8_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(6));
-            }
-
-            else if (generator == 4 & sheep > 0)
-            {
-                sheep--;
-                Instantiate(sheep_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_8_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(5));
-            }
-
-            else if (generator == 5 & straw > 0)
-            {
-                straw--;
-                Instantiate(straw_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_8_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(6));
-            }
-            else
-            {
-                generator_map(i, x, z, aleatoire.Next(6));
-
-            }
-            
-        }
-
-        else if (i == 15 || i == 18)
-        {
-            if (generator == 1 & brick > 0)
-            {
-                brick--;
-                Instantiate(brick_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_6_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(6));
-            }
-
-            else if (generator == 2 & wood > 0)
-            {
-                wood--;
-                Instantiate(wood_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_6_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(6));
-            }
-
-            else if (generator == 3 & stone > 0)
-            {
-                stone--;
-                Instantiate(stone_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_6_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(6));
-            }
-
-            else if (generator == 4 & sheep > 0)
-            {
-                sheep--;
-                Instantiate(sheep_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_6_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(6));
-            }
-
-            else if (generator == 5 & straw > 0)
-            {
-                straw--;
-                Instantiate(straw_map, new Vector3(x, 0, z), Quaternion.identity);
-                Instantiate(token_6_map, new Vector3(x, 0, z), Quaternion.identity);
-                transform.LookAt(Vector3.zero);
-                generator_map(i + 1, x, z, aleatoire.Next(6));
-            }
-            else
-            {
-                generator_map(i, x, z, aleatoire.Next(6));
-            }
-            
-
-        }
-
-        else if (i == 3)
+        if (i == 3)
         {
             Instantiate(desert_map, new Vector3(x, 0, z), Quaternion.identity);
-            Instantiate(token_7_map, new Vector3(x, 0, z), Quaternion.identity);
-            transform.LookAt(Vector3.zero);
             generator_map(i + 1, x, z, aleatoire.Next(6));
+            bigOne[0, i] = desert_case;
         }
+
         else if (generator == 1 & brick > 0)
         {
             brick--;
             Instantiate(brick_map, new Vector3(x, 0, z), Quaternion.identity);
             generator_map(i + 1, x, z, aleatoire.Next(6));
+            bigOne[0, i] = brick_case;
         }
 
         else if (generator == 2 & wood > 0)
@@ -291,6 +254,7 @@ public class InstantiateMap : MonoBehaviour
             wood--;
             Instantiate(wood_map, new Vector3(x, 0, z), Quaternion.identity);
             generator_map(i + 1, x, z, aleatoire.Next(6));
+            bigOne[0, i] = wood_case;
         }
 
         else if (generator == 3 & stone > 0)
@@ -298,6 +262,7 @@ public class InstantiateMap : MonoBehaviour
             stone--;
             Instantiate(stone_map, new Vector3(x, 0, z), Quaternion.identity);
             generator_map(i + 1, x, z, aleatoire.Next(6));
+            bigOne[0, i] = stone_case;
         }
 
         else if (generator == 4 & sheep > 0)
@@ -305,6 +270,8 @@ public class InstantiateMap : MonoBehaviour
             sheep--;
             Instantiate(sheep_map, new Vector3(x, 0, z), Quaternion.identity);
             generator_map(i + 1, x, z, aleatoire.Next(6));
+            bigOne[0, i] = sheep_case;
+
         }
 
         else if (generator == 5 & straw > 0)
@@ -312,21 +279,19 @@ public class InstantiateMap : MonoBehaviour
             straw--;
             Instantiate(straw_map, new Vector3(x, 0, z), Quaternion.identity);
             generator_map(i + 1, x, z, aleatoire.Next(6));
+            bigOne[0, i] = straw_case;
         }
 
-        else 
+
+        else if (i > 19) { Debug.Log("Fin Map"); }
+        else
         {
-            if (i > 19) { Debug.Log("Fin Map"); }
-            else
-            {
-                generator_map(i, x, z, aleatoire.Next(6));
-            }
-            
+           generator_map(i, x, z, aleatoire.Next(6));
         }
 
     }
    
-    public void generator_sea(float i, float x, float z, int y, int pair, int generator)
+    public void generator_sea(int i, float x, float z, int y, int pair, int generator)
     {
         switch (i)
         {
@@ -417,63 +382,10 @@ public class InstantiateMap : MonoBehaviour
 
     void Start()
     {
-        generator_token(1, 0, 0);
+        generator_token(1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
         generator_map(1, 0, -2, aleatoire.Next(6));
         generator_sea(1, -1.5f, -3, -120, 1, aleatoire.Next(6));
+        Debug.Log("{" + bigOne[0,1] + ", "  + bigOne[0, 2] + ", " + bigOne[0, 3] + ", " + bigOne[0, 4] + ", " + bigOne[0, 5] + ", " + bigOne[0, 6] + ", " + bigOne[0, 7] + ", " + bigOne[0, 8] + ", " + bigOne[0, 9] + ", " + bigOne[0, 10] + ", " + bigOne[0, 11] + ", " + bigOne[0, 12] + ", " + bigOne[0, 13] + ", " + bigOne[0, 14] + ", " + bigOne[0, 15] + ", " + bigOne[0, 16] + ", " + bigOne[0, 17] + ", " + bigOne[0, 18] + ", " + bigOne[0, 19] + "}");
+        Debug.Log("{" + babyOne[0,1] + ", " + babyOne[0,2] + ", " + babyOne[0,3] + ", " + babyOne[0,4] + ", " + babyOne[0,5] + ", " + babyOne[0,6] + ", " + babyOne[0,7] + ", " + babyOne[0, 8] + ", " + babyOne[0, 9] + ", " + babyOne[0, 10] + ", " + babyOne[0, 11] + ", " + babyOne[0, 12] + ", " + babyOne[0, 13] + ", " + babyOne[0, 14] + ", " + babyOne[0, 15] + ", " + babyOne[0, 16] + ", " + babyOne[0, 17] + ", " + babyOne[0, 18] + ", " + babyOne[0, 19] +  "}");
     }
 }
-
-
-/* if (generator != 0 & i != 2 & i != 4 & i != 15 & i != 18 & random_token == 0 & token_2>0)
- {
-     token_2--;
-     Instantiate(token_2_map, new Vector3(x, 0, z), Quaternion.identity);
-     transform.LookAt(Vector3.zero);
- }
- else if (generator != 0 & i != 2 & i != 4 & i != 15 & i != 18 & random_token == 1 & token_3>0)
- {
-     token_3--;
-     Instantiate(token_3_map, new Vector3(x, 0, z), Quaternion.identity);
-     transform.LookAt(Vector3.zero);
- }
- else if (generator != 0 & i != 2 & i != 4 & i != 15 & i != 18 & random_token == 2 & token_4>0)
- {
-     token_4--;
-     Instantiate(token_4_map, new Vector3(x, 0, z), Quaternion.identity);
-     transform.LookAt(Vector3.zero);
- }
-
- else if (generator != 0 & i != 2 & i != 4 & i != 15 & i != 18 & random_token == 3 & token_5>0)
- {
-     token_5--;
-     Instantiate(token_5_map, new Vector3(x, 0, z), Quaternion.identity);
-     transform.LookAt(Vector3.zero);
- }
- else if (generator != 0 & i != 2 & i != 4 & i != 15 & i != 18 & random_token == 4 & token_9>0)
- {
-     token_9--;
-     Instantiate(token_9_map, new Vector3(x, 0, z), Quaternion.identity);
-     transform.LookAt(Vector3.zero);
- }
- else if (generator != 0 & i != 2 & i != 4 & i != 15 & i != 18 & random_token == 5 & token_10>0)
- {
-     token_10--;
-     Instantiate(token_10_map, new Vector3(x, 0, z), Quaternion.identity);
-     transform.LookAt(Vector3.zero);
- }
- else if (generator != 0 & i != 2 & i != 4 & i != 15 & i != 18 & random_token == 6 & token_11>0)
- {
-     token_11--;
-     Instantiate(token_11_map, new Vector3(x, 0, z), Quaternion.identity);
-     transform.LookAt(Vector3.zero);
- }
- else if (generator != 0 & i != 2 & i != 4 & i != 15 & i != 18 & random_token == 7 & token_12>0)
- {
-     token_12--;
-     Instantiate(token_12_map, new Vector3(x, 0, z), Quaternion.identity);
-     transform.LookAt(Vector3.zero);
- }
- else
- {
-
- }*/
