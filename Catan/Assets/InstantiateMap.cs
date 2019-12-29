@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 public class InstantiateMap : MonoBehaviour
 {
@@ -54,7 +50,6 @@ public class InstantiateMap : MonoBehaviour
     int stone_case = 4;
     int sheep_case = 5;
     int straw_case = 6;
-    int token_total = 15;
     int token_2 = 1;
     int token_3 = 2;
     int token_4 = 2;
@@ -70,15 +65,15 @@ public class InstantiateMap : MonoBehaviour
     int token_6_case = 6;
     int token_7_case = 7;
     int token_8_case = 8;
-    int token_9_case= 9;
+    int token_9_case = 9;
     int token_10_case = 10;
     int token_11_case = 11;
     int token_12_case = 12;
 
-    int[,] bigOne = new int[20,20];
+    int[,] bigOne = new int[20, 20];
 
-    int[,] babyOne = new int[20,20];
-    
+    int[,] babyOne = new int[20, 20];
+
 
     Transform tk;
     System.Random aleatoire = new System.Random();
@@ -122,30 +117,30 @@ public class InstantiateMap : MonoBehaviour
             case 19: x = 2.5f; z = -2; break;
         };
         if (i > 19) { }
-        else if (i == 1 || i == 5 || i == 6 || i ==7 || i==8 || i == 9 || i ==10 || i == 11 || i == 12 || i == 13 || i == 14 || i == 16 || i == 17 || i ==19)
+        else if (i == 1 || i == 5 || i == 6 || i == 7 || i == 8 || i == 9 || i == 10 || i == 11 || i == 12 || i == 13 || i == 14 || i == 16 || i == 17 || i == 19)
         {
-           
+
 
             if (token == 2 && token_2 > 0)
             {
                 token_2--;
                 babyOne[0, i] = token_2_case;
                 Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
-                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12); 
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
             }
             else if (token == 3 && token_3 > 0)
             {
                 token_3--;
                 babyOne[0, i] = token_3_case;
                 Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
-                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);   
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
             }
             else if (token == 4 && token_4 > 0)
             {
                 token_4--;
                 babyOne[0, i] = token_4_case;
                 Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
-                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);   
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
             }
             else if (token == 5 && token_5 > 0)
             {
@@ -166,7 +161,7 @@ public class InstantiateMap : MonoBehaviour
                 token_10--;
                 babyOne[0, i] = token_10_case;
                 Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
-                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12); 
+                generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
             }
             else if (token == 11 && token_11 > 0)
             {
@@ -182,7 +177,7 @@ public class InstantiateMap : MonoBehaviour
                 Instantiate(tk, new Vector3(x, 0, z), Quaternion.identity);
                 generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
             }
-            else {generator_token(i, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);}
+            else { generator_token(i, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12); }
         }
         else if (i == 2 || i == 4)
         {
@@ -202,10 +197,10 @@ public class InstantiateMap : MonoBehaviour
             generator_token(i + 1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
             babyOne[0, i] = token_7_case;
         }
-     
+
         else
         {
-            Debug.Log("Fin Token");      
+            Debug.Log("Fin Token");
         }
     }
 
@@ -286,11 +281,11 @@ public class InstantiateMap : MonoBehaviour
         else if (i > 19) { Debug.Log("Fin Map"); }
         else
         {
-           generator_map(i, x, z, aleatoire.Next(6));
+            generator_map(i, x, z, aleatoire.Next(6));
         }
 
     }
-   
+
     public void generator_sea(int i, float x, float z, int y, int pair, int generator)
     {
         switch (i)
@@ -377,15 +372,70 @@ public class InstantiateMap : MonoBehaviour
         else
         {
             generator_sea(i, x, z, y, pair, generator);
+
+        }
+    }
+    void lancerdeDés(int wood, int stone , int straw, int brick , int sheep)
+    {
+        System.Random dé = new System.Random();
+        int dé1 = dé.Next(1, 7);
+        int dé2 = dé.Next(1, 7);
+        int résultat = dé1 + dé2;
+        int m = babyOne.GetLength(0);
+        int n = babyOne.GetLength(1);
+        int valeur_ressource = 0;
+        Debug.Log("le résultat est : " + résultat);
+        for (int a = 0; a < m; a++)
+        {
+            for (int b = 0; b < n; b++)
+            {
+                if (babyOne[a, b] == résultat)
+                {
+                    valeur_ressource = bigOne[a, b];
+                    if (valeur_ressource == 1)
+                    {
+                    }
+                    else if (valeur_ressource == 2)
+                    {
+                        brick++;
+                        Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
+                    }
+                    else if (valeur_ressource == 3)
+                    {
+                        wood++;
+                        Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
+                    }
+                    else if (valeur_ressource == 4)
+                    {
+                        stone++;
+                        Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
+                    }
+                    else if (valeur_ressource == 5)
+                    {
+                        sheep++;
+                        Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
+                    }
+                    else if (valeur_ressource == 6)
+                    {
+                        straw++;
+                        Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
+                    }
+                    else
+                    {
+                    }
+                }
+                else { }
+                   
+            }
         }
     }
 
+
     void Start()
     {
-        generator_token(1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
-        generator_map(1, 0, -2, aleatoire.Next(6));
-        generator_sea(1, -1.5f, -3, -120, 1, aleatoire.Next(6));
-        Debug.Log("{" + bigOne[0,1] + ", "  + bigOne[0, 2] + ", " + bigOne[0, 3] + ", " + bigOne[0, 4] + ", " + bigOne[0, 5] + ", " + bigOne[0, 6] + ", " + bigOne[0, 7] + ", " + bigOne[0, 8] + ", " + bigOne[0, 9] + ", " + bigOne[0, 10] + ", " + bigOne[0, 11] + ", " + bigOne[0, 12] + ", " + bigOne[0, 13] + ", " + bigOne[0, 14] + ", " + bigOne[0, 15] + ", " + bigOne[0, 16] + ", " + bigOne[0, 17] + ", " + bigOne[0, 18] + ", " + bigOne[0, 19] + "}");
-        Debug.Log("{" + babyOne[0,1] + ", " + babyOne[0,2] + ", " + babyOne[0,3] + ", " + babyOne[0,4] + ", " + babyOne[0,5] + ", " + babyOne[0,6] + ", " + babyOne[0,7] + ", " + babyOne[0, 8] + ", " + babyOne[0, 9] + ", " + babyOne[0, 10] + ", " + babyOne[0, 11] + ", " + babyOne[0, 12] + ", " + babyOne[0, 13] + ", " + babyOne[0, 14] + ", " + babyOne[0, 15] + ", " + babyOne[0, 16] + ", " + babyOne[0, 17] + ", " + babyOne[0, 18] + ", " + babyOne[0, 19] +  "}");
+      generator_token(1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
+      generator_map(1, 0, -2, aleatoire.Next(6));
+      generator_sea(1, -1.5f, -3, -120, 1, aleatoire.Next(6));
+      lancerdeDés(0,0,0,0,0);    
     }
 }

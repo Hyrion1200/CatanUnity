@@ -1058,6 +1058,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3905513938030580876, guid: 06c975baef2a70c49b9829cd87f2cc69,
+        type: 3}
+      propertyPath: m_Name
+      value: GameObject
+      objectReference: {fileID: 0}
     - target: {fileID: -6608904727812203971, guid: 06c975baef2a70c49b9829cd87f2cc69,
         type: 3}
       propertyPath: ObservedComponents.Array.size
@@ -1067,11 +1072,6 @@ PrefabInstance:
         type: 3}
       propertyPath: viewIdField
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905513938030580876, guid: 06c975baef2a70c49b9829cd87f2cc69,
-        type: 3}
-      propertyPath: m_Name
-      value: GameObject
       objectReference: {fileID: 0}
     - target: {fileID: 563750410831086299, guid: 06c975baef2a70c49b9829cd87f2cc69,
         type: 3}

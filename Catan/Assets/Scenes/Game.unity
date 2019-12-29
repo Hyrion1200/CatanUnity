@@ -203,18 +203,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 52.393, y: 0, z: 0}
---- !u!4 &861452291 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4473945228448552, guid: 4fbd252196892684286e1d961b54195f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1771443551}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &931775650 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4786539368784872, guid: 22c940814b74ff14eb4ff8133d61788c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1107982646}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1107982646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -559,8 +547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f80cd3cddc06440ae3e713093d511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Village_r1: {fileID: 861452291}
-  Route_r1: {fileID: 931775650}
 --- !u!4 &1848877562
 Transform:
   m_ObjectHideFlags: 0

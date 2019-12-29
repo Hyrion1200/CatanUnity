@@ -26,33 +26,33 @@ public class Order_Player_Start : MonoBehaviour
             Debug.Log(dé1);
             Debug.Log(dé2);
         }
-        void startDés(int i)
+        void setOrderPlayer(int i)
         {
             if (PV.ViewID == 1001 && i == 1)
             {
                 lancerdeDés();
-                startDés(i + 1);
+                setOrderPlayer(i + 1);
             }
             else if (PV.ViewID == 2001 && i == 2)
             {
                 lancerdeDés();
-                startDés(i + 1);
+                setOrderPlayer(i + 1);
             }
             else if (PV.ViewID == 3001 && i == 3)
             {
                 lancerdeDés();
-                startDés(i + 1);
+                setOrderPlayer(i + 1);
             }
             else if (PV.ViewID == 4001 && i == 4)
             {
                 lancerdeDés();
-                startDés(i + 1);
+                setOrderPlayer(i + 1);
             }
             else
             {
                 Debug.Log("C'est la merde");
             }
         }
-        startDés(1);
+        setOrderPlayer(1);
     }
 }
