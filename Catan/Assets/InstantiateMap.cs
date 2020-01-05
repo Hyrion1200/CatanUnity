@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class InstantiateMap : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Transform brick_map;
     public Transform desert_map;
     public Transform wood_map;
@@ -74,11 +75,14 @@ public class InstantiateMap : MonoBehaviour
 
     int[,] babyOne = new int[20, 20];
 
+    [SerializeField]
+    private GameObject RollButton;
 
     Transform tk;
     System.Random aleatoire = new System.Random();
     System.Random random = new System.Random();
 
+    
 
     public void generator_token(int i, float x, float z, ref int token_2, ref int token_3, ref int token_4, ref int token_5, ref int token_9, ref int token_10, ref int token_11, ref int token_12)
     {
@@ -375,21 +379,27 @@ public class InstantiateMap : MonoBehaviour
 
         }
     }
-    void lancerdeDés(int wood, int stone , int straw, int brick , int sheep)
+
+    public void lancerdeDés()
+    {
+        roll(wood, stone, straw, brick , sheep); 
+    }
+    public void roll(int wood, int stone , int straw, int brick , int sheep)
     {
         System.Random dé = new System.Random();
         int dé1 = dé.Next(1, 7);
         int dé2 = dé.Next(1, 7);
-        int résultat = dé1 + dé2;
+        int resultat = dé1 + dé2;
+        Debug.Log("Ton dé a fait : " + resultat);
         int m = babyOne.GetLength(0);
         int n = babyOne.GetLength(1);
         int valeur_ressource = 0;
-        Debug.Log("le résultat est : " + résultat);
+        
         for (int a = 0; a < m; a++)
         {
             for (int b = 0; b < n; b++)
             {
-                if (babyOne[a, b] == résultat)
+                if (babyOne[a, b] == resultat)
                 {
                     valeur_ressource = bigOne[a, b];
                     if (valeur_ressource == 1)
@@ -430,12 +440,13 @@ public class InstantiateMap : MonoBehaviour
         }
     }
 
-
+    
+    
     void Start()
     {
       generator_token(1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
       generator_map(1, 0, -2, aleatoire.Next(6));
       generator_sea(1, -1.5f, -3, -120, 1, aleatoire.Next(6));
-      lancerdeDés(0,0,0,0,0);    
+      roll(0,0,0,0,0);
     }
 }
