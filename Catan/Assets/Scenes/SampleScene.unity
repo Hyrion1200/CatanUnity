@@ -355,7 +355,7 @@ RectTransform:
   m_GameObject: {fileID: 343681930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 623991154}
   m_Father: {fileID: 343624505}
@@ -363,8 +363,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 78}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -90, y: 0}
+  m_SizeDelta: {x: 45.3, y: 28.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343681932
 MonoBehaviour:
@@ -847,7 +847,7 @@ RectTransform:
   m_GameObject: {fileID: 1485739078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 26636596}
   m_Father: {fileID: 343624505}
@@ -855,8 +855,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 80.44, y: 0}
+  m_SizeDelta: {x: 62, y: 28.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1485739080
 MonoBehaviour:
@@ -1007,6 +1007,7 @@ MonoBehaviour:
     type: 3}
   token_12_map: {fileID: 4316448374051412, guid: 4eab751cb2f2dd74882121260286cd80,
     type: 3}
+  RollButton: {fileID: 0}
 --- !u!1 &2123008913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,16 +1064,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameObject
       objectReference: {fileID: 0}
-    - target: {fileID: -6608904727812203971, guid: 06c975baef2a70c49b9829cd87f2cc69,
-        type: 3}
-      propertyPath: ObservedComponents.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6608904727812203971, guid: 06c975baef2a70c49b9829cd87f2cc69,
-        type: 3}
-      propertyPath: viewIdField
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 563750410831086299, guid: 06c975baef2a70c49b9829cd87f2cc69,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1127,6 +1118,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6608904727812203971, guid: 06c975baef2a70c49b9829cd87f2cc69,
+        type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6608904727812203971, guid: 06c975baef2a70c49b9829cd87f2cc69,
+        type: 3}
+      propertyPath: viewIdField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4562449654267080016, guid: 06c975baef2a70c49b9829cd87f2cc69,
         type: 3}
