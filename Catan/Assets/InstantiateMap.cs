@@ -386,6 +386,8 @@ public class InstantiateMap : MonoBehaviour
     }
     public void roll(int wood, int stone , int straw, int brick , int sheep)
     {
+        DisplayRessources ressources;
+        ressources = FindObjectOfType<DisplayRessources>();
         System.Random dé = new System.Random();
         int dé1 = dé.Next(1, 7);
         int dé2 = dé.Next(1, 7);
@@ -407,27 +409,27 @@ public class InstantiateMap : MonoBehaviour
                     }
                     else if (valeur_ressource == 2)
                     {
-                        brick++;
+                        ressources.brick++;
                         Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
                     }
                     else if (valeur_ressource == 3)
                     {
-                        wood++;
+                        ressources.wood++;
                         Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
                     }
                     else if (valeur_ressource == 4)
                     {
-                        stone++;
+                        ressources.stone++;
                         Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
                     }
                     else if (valeur_ressource == 5)
                     {
-                        sheep++;
+                        ressources.sheep++;
                         Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
                     }
                     else if (valeur_ressource == 6)
                     {
-                        straw++;
+                        ressources.straw++;
                         Debug.Log("Bois : " + wood + ", " + "Pierre : " + stone + ", " + "Paille : " + straw + ", " + "Mouton : " + sheep + ", " + "Brique : " + brick);
                     }
                     else
@@ -447,6 +449,5 @@ public class InstantiateMap : MonoBehaviour
       generator_token(1, 0, 0, ref token_2, ref token_3, ref token_4, ref token_5, ref token_9, ref token_10, ref token_11, ref token_12);
       generator_map(1, 0, -2, aleatoire.Next(6));
       generator_sea(1, -1.5f, -3, -120, 1, aleatoire.Next(6));
-      roll(0,0,0,0,0);
     }
 }
